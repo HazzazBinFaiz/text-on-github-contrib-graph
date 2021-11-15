@@ -49,9 +49,9 @@ class TextWriter {
 
 	paintItem(item, focus = true) {
 		if(focus) {
-			item.style.fill = 'red';
+			item.dataset.level = '4';
 		} else {
-			item.style.fill = 'white';
+			item.dataset.level = '0';
 		}
 	}
 
