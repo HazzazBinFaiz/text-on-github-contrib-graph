@@ -108,7 +108,7 @@ class TextWriter {
 	}
 
 	writeOnGraph(text) {
-		this.text = text.replace(/[^a-zA-Z\s]/g, '')
+		this.text = text.replace(/[^a-zA-Z0-9:\s]/g, '')
 		this.clear();
 		this.render();
 	}
