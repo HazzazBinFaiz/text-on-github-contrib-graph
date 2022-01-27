@@ -55,7 +55,7 @@ class TextWriter {
 			'8':[62,42,42,62],
 			'9':[14,10,10,62],
 			':':[0,54,54,0]
-		}[char.toUpperCase()];
+		}[(char+'').toUpperCase()];
 	}
 
 	paintItem(item, focus = true) {
