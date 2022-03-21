@@ -58,12 +58,8 @@ class TextWriter {
 		}[(char+'').toUpperCase()];
 	}
 
-	paintItem(item, focus = true) {
-		if(focus) {
-			item.dataset.level = '4';
-		} else {
-			item.dataset.level = '0';
-		}
+	paintItem(item, level = 4) {
+		item.dataset.level = level;
 	}
 
 	paintColumn(char, charposition, column){
@@ -102,7 +98,7 @@ class TextWriter {
 	clear() {
 		Array.from(this.container.children[0].children).forEach((column) => {
 			Array.from(column.children).forEach((item) => {
-				this.paintItem(item, false);
+				this.paintItem(item, 0);
 			});
 		});
 	}
