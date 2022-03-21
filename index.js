@@ -103,14 +103,28 @@ class TextWriter {
 		});
 	}
 
-	writeOnGraph(text) {
+	addNoise() {
+		Array.from(this.container.children[0].children).forEach((column) => {
+			Array.from(column.children).forEach((item) => {
+				if (parseInt(item.dataset.level) != 4) {
+					this.paintItem(item, Math.floor(Math.random() * 2));
+				}
+			});
+		});
+	}
+
+	writeOnGraph(text, options) {
 		this.text = text.replace(/[^a-zA-Z0-9:\s]/g, '')
 		this.clear();
+		if (options.noise) {
+			this.addNoise()
+		}
 		this.render();
 	}
 
 	static write(text, options = {}) {
-		(new TextWriter(options)).writeOnGraph(text)
+		var obj = new TextWriter(options)
+		obj.writeOnGraph(text, options)
 	}
 }
 
